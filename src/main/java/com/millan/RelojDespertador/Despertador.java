@@ -16,10 +16,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JSeparator;
 import javax.swing.ButtonGroup;
-import javax.swing.JCheckBoxMenuItem;
+
 
 public class Despertador extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JMenuBar menuBar;
 	private JMenu mnArchivo;
@@ -58,9 +62,6 @@ public class Despertador extends JFrame {
 		
 		iniciarMenu();
 		
-		
-		
-		
 	}
 
 	private void iniciarMenu() {
@@ -88,8 +89,27 @@ public class Despertador extends JFrame {
 		mnDespertador.add(rdbtnmntmDesactivado);
 		menuBar.add(mnDespertador);
 		
+		//PopupMenu Pais
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		JPopupMenu popupMenu = new JPopupMenu();
+		addPopup(contentPane, popupMenu);
+		
+		JMenuItem mntmAnadir = new JMenuItem("Añadir");
+		JMenuItem mntmElimnar = new JMenuItem("Elimnar");
+		JSeparator separator = new JSeparator();
+		
+		mntmElimnar.setVisible(false);
+		separator.setVisible(false);
+		
+		popupMenu.add(mntmAnadir);
+		popupMenu.add(mntmElimnar);
+		popupMenu.add(separator);		
+		
 		//Menu Pais
 		JMenu mnPais = new JMenu("Pais");
+		mnPais.add(popupMenu);
 		menuBar.add(mnPais);
 		
 		
@@ -99,23 +119,7 @@ public class Despertador extends JFrame {
 		mnAyuda.add(mntmAcercaDe);
 		menuBar.add(mnAyuda);
 		
-
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		
-		JPopupMenu popupMenu = new JPopupMenu();
-		addPopup(contentPane, popupMenu);
-		
-		JMenuItem mntmAadir = new JMenuItem("Añadir");
-		JMenuItem mntmElimnar = new JMenuItem("Elimnar");
-		JSeparator separator = new JSeparator();
-		
-		mntmElimnar.setVisible(false);
-		separator.setVisible(false);
-		
-		popupMenu.add(mntmAadir);
-		popupMenu.add(mntmElimnar);
-		popupMenu.add(separator);
 		
 	}
 
